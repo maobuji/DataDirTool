@@ -18,10 +18,10 @@ public class InitDescTool {
         excelWriter.println("猫不急");
         excelWriter.print("Email：");
         excelWriter.println("16770864@qq.com");
-        excelWriter.println("");
-        excelWriter.println("");
+        excelWriter.println("项目地址:");
+        excelWriter.println("https://github.com/maobuji/DataDirTool");
 
-        excelWriter.println("说明：EAS数据字典生成工具生成.生成工具可以根据服务器的补丁的生成对应的字典文件。工具可以向作者邮件索取！");
+        excelWriter.println("说明：EAS数据字典生成工具生成.生成工具可以根据服务器的补丁的生成对应的字典文件。工具可以向作者邮件索取或访问https://github.com/maobuji/DataDirTool获得！");
 
 
     }
