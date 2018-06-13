@@ -52,7 +52,7 @@ public class DataDirMenu extends JMenuBar {
         Container con = aboutDialog.getContentPane();
         Icon icon = new ImageIcon("sdmile.gif");
 
-        String showMessage="制作人:-猫不急 <br>  " +
+        String showMessage="制作人:猫不急 <br>  " +
                 "Email:16770864@qq.com" + "<br>"+
                 "项目地址:https://github.com/maobuji/DataDirTool";
 
