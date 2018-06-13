@@ -1,16 +1,11 @@
 package com.fan.ui;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
-
-import org.dom4j.DocumentException;
-
-import com.fan.CreateDataDirTool;
 
 public class DataDirThread implements Runnable {
 

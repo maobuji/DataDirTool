@@ -7,33 +7,28 @@ import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 
 import com.fan.metastool.EntityAnalysisInfo;
 import com.fan.metastool.EntityColumnInfo;
+import org.apache.poi.ss.usermodel.CellStyle;
 
 public class EntityToExcel {
 
-    private ExcelWriter excelWriter = null;
+    private IExcelWriter excelWriter = null;
 
-    public ExcelWriter getExcelWriter() {
+    public IExcelWriter getExcelWriter() {
         return excelWriter;
     }
 
-    public void setExcelWriter(ExcelWriter excelWriter) {
+    public void setExcelWriter(IExcelWriter excelWriter) {
         this.excelWriter = excelWriter;
-
-
-        HSSFCellStyle style = excelWriter.getWb().createCellStyle();
-        style.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);
-        style.setFillForegroundColor((short) 24);
-
-        excelWriter.print("表名").setCellStyle(style);
-        excelWriter.print("表别名").setCellStyle(style);
-        excelWriter.print("字段名").setCellStyle(style);
-        excelWriter.print("字段别名").setCellStyle(style);
-        excelWriter.print("字段类型").setCellStyle(style);
-        excelWriter.print("Length").setCellStyle(style);
-        excelWriter.print("Prec").setCellStyle(style);
-        excelWriter.print("Scale").setCellStyle(style);
-        excelWriter.print("字段描述").setCellStyle(style);
-        excelWriter.println("字段链接信息").setCellStyle(style);
+        excelWriter.print("表名",WriteType.DIR_HEAD);
+        excelWriter.print("表别名",WriteType.DIR_HEAD);
+        excelWriter.print("字段名",WriteType.DIR_HEAD);
+        excelWriter.print("字段别名",WriteType.DIR_HEAD);
+        excelWriter.print("字段类型",WriteType.DIR_HEAD);
+        excelWriter.print("Length",WriteType.DIR_HEAD);
+        excelWriter.print("Prec",WriteType.DIR_HEAD);
+        excelWriter.print("Scale",WriteType.DIR_HEAD);
+        excelWriter.print("字段描述",WriteType.DIR_HEAD);
+        excelWriter.println("字段链接信息",WriteType.DIR_HEAD);
         excelWriter.println("");
     }
 
@@ -42,20 +37,17 @@ public class EntityToExcel {
     }
 
     public void write(EntityAnalysisInfo entityAnalysisInfo) throws IOException {
-        excelWriter.print(entityAnalysisInfo.getEntityTable()).setCellStyle(
-                excelWriter.getStyle());
-        excelWriter.print(entityAnalysisInfo.getEntityAlias()).setCellStyle(
-                excelWriter.getStyle());
-        excelWriter.print(entityAnalysisInfo.getEntityPackage())
-                .setCellStyle(excelWriter.getStyle());
+        excelWriter.print(entityAnalysisInfo.getEntityTable(),WriteType.TABLE_HEAD);
+        excelWriter.print(entityAnalysisInfo.getEntityAlias(),WriteType.TABLE_HEAD);
+        excelWriter.print(entityAnalysisInfo.getEntityPackage(),WriteType.TABLE_HEAD);
 
-        excelWriter.print("").setCellStyle(excelWriter.getStyle());
-        excelWriter.print("").setCellStyle(excelWriter.getStyle());
-        excelWriter.print("").setCellStyle(excelWriter.getStyle());
-        excelWriter.print("").setCellStyle(excelWriter.getStyle());
-        excelWriter.print("").setCellStyle(excelWriter.getStyle());
-        excelWriter.print("").setCellStyle(excelWriter.getStyle());
-        excelWriter.println("").setCellStyle(excelWriter.getStyle());
+        excelWriter.print("",WriteType.TABLE_HEAD);
+        excelWriter.print("",WriteType.TABLE_HEAD);
+        excelWriter.print("",WriteType.TABLE_HEAD);
+        excelWriter.print("",WriteType.TABLE_HEAD);
+        excelWriter.print("",WriteType.TABLE_HEAD);
+        excelWriter.print("",WriteType.TABLE_HEAD);
+        excelWriter.println("",WriteType.TABLE_HEAD);
 
         this.writeColumn(entityAnalysisInfo, entityAnalysisInfo
                 .getEntityTable(), entityAnalysisInfo.getEntityAlias());

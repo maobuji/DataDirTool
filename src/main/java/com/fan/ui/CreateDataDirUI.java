@@ -135,13 +135,4 @@ public class CreateDataDirUI extends JFrame {
 
     }
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        CreateDataDirUI createDataDirUI = new CreateDataDirUI();
-        createDataDirUI.setVisible(true);
-        createDataDirUI.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-    }
-
 }

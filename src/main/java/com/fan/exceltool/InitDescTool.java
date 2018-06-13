@@ -1,14 +1,17 @@
 package com.fan.exceltool;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class InitDescTool {
 
-    private ExcelWriter excelWriter = null;
+    private IExcelWriter excelWriter = null;
 
-    public ExcelWriter getExcelWriter() {
+    public IExcelWriter getExcelWriter() {
         return excelWriter;
     }
 
-    public void setExcelWriter(ExcelWriter excelWriter) {
+    public void setExcelWriter(IExcelWriter excelWriter) {
         this.excelWriter = excelWriter;
     }
 
@@ -18,10 +21,15 @@ public class InitDescTool {
         excelWriter.println("猫不急");
         excelWriter.print("Email：");
         excelWriter.println("16770864@qq.com");
-        excelWriter.println("项目地址:");
+        excelWriter.print("项目地址:");
         excelWriter.println("https://github.com/maobuji/DataDirTool");
+        excelWriter.println("");
+        excelWriter.println("本文件由EAS数据字典生成工具DataDirTool根据EAS服务器中的元数据生成.");
+        excelWriter.println("生成工具DataDirTool可以向作者邮件索取或访问https://github.com/maobuji/DataDirTool获得！");
 
-        excelWriter.println("说明：EAS数据字典生成工具生成.生成工具可以根据服务器的补丁的生成对应的字典文件。工具可以向作者邮件索取或访问https://github.com/maobuji/DataDirTool获得！");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date date=new Date();
+        excelWriter.println("文件生成时间:"+sdf.format(date));
 
 
     }

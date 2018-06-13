@@ -3,24 +3,25 @@ package com.fan;
 import java.io.IOException;
 import java.util.Arrays;
 
+import com.fan.exceltool.ExcelWriterFactory;
+import com.fan.exceltool.IExcelWriter;
 import org.dom4j.DocumentException;
 
 import com.fan.exceltool.EntityToExcel;
-import com.fan.exceltool.ExcelWriter;
 import com.fan.exceltool.InitDescTool;
 import com.fan.filelist.FileList;
 import com.fan.filelist.MetasList;
 import com.fan.metastool.EntityAnalysisInfo;
 import com.fan.metastool.EntityAnalysisTool;
 
-public class CreateDataDir {
+public class AppCmdStart {
 
     /**
      * @param args
      * @throws IOException
      * @throws DocumentException
      */
-    public static void main(String[] args) throws IOException,
+    public static void main(String[] args) throws Exception,
             DocumentException {
 
         // 获取Metas目录
@@ -36,11 +37,8 @@ public class CreateDataDir {
         EntityAnalysisTool entityAnalysisTool = new EntityAnalysisTool(
                 matesList.getMatesMap());
 
-
-
-
-        ExcelWriter excelWriter = new ExcelWriter();
-        InitDescTool initDescTool=new InitDescTool();
+        IExcelWriter excelWriter = ExcelWriterFactory.getExcelWriter(ExcelWriterFactory.XLS_TYPE);
+        InitDescTool initDescTool = new InitDescTool();
         excelWriter.createSheet("说明");
         initDescTool.setExcelWriter(excelWriter);
         initDescTool.initDesc();
@@ -52,10 +50,10 @@ public class CreateDataDir {
         excelWriter.createSheet("EAS数据字典");
         entityToExcel.setExcelWriter(excelWriter);
         String[] keys = (String[]) matesList.getMatesMap().keySet().toArray(
-                new String[] {});
+                new String[]{});
         Arrays.sort(keys);
         for (int i = 0; i < keys.length; i++) {
-            if(!keys[i].endsWith(".entity")){
+            if (!keys[i].endsWith(".entity")) {
                 continue;
             }
             EntityAnalysisInfo entityAnalysisInfo = entityAnalysisTool

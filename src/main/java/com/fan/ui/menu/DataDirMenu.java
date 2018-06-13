@@ -51,9 +51,18 @@ public class DataDirMenu extends JMenuBar {
         aboutDialog.setTitle("关于");
         Container con = aboutDialog.getContentPane();
         Icon icon = new ImageIcon("sdmile.gif");
-        JLabel aboutLabel = new JLabel("<html><b><font size=5>" + "<center>制作人:-猫不急 <br>  Email:16770864@qq.com" + "<br>", icon, JLabel.CENTER);
+
+        String showMessage="制作人:-猫不急 <br>  " +
+                "Email:16770864@qq.com" + "<br>"+
+                "项目地址:https://github.com/maobuji/DataDirTool";
+
+        String about = "<html><b><font size=5>" +showMessage+
+                "</font></b></html>";
+
+
+        JLabel aboutLabel = new JLabel(about, icon, JLabel.CENTER);
         con.add(aboutLabel, BorderLayout.CENTER);
-        aboutDialog.setSize(450, 225);
+        aboutDialog.setSize(500, 225);
         aboutDialog.setLocation(300, 300);
         aboutDialog.addWindowListener(new WindowAdapter() {
             public void WindowClosing(WindowEvent e) {
