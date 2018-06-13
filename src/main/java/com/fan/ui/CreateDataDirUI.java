@@ -4,14 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 
 import org.dyno.visual.swing.layouts.Bilateral;
@@ -29,6 +22,7 @@ public class CreateDataDirUI extends JFrame {
     private JTextField textField = null;
     JButton buttonDir = null;
     JButton buttonCreate = null;
+    private JCheckBox jcb = new JCheckBox("xlsx");
 
     public CreateDataDirUI() {
         super();
@@ -38,16 +32,24 @@ public class CreateDataDirUI extends JFrame {
         this.setTitle("数据字典生成工具-猫不急");
 
         setLayout(new GroupLayout());
-        add(getDirJButton(), new Constraints(new Trailing(100, 10, 234),
-                new Leading(6, 12, 12)));
-        add(getCreateJButton(), new Constraints(new Trailing(5, 10, 234),
-                new Leading(6, 12, 12)));
+
         add(dirSelectJTextField(), new Constraints(new Bilateral(14, 200, 4),
                 new Leading(12, 12, 12)));
+
+        add(getDirJButton(), new Constraints(new Trailing(150, 10, 234),
+                new Leading(6, 12, 12)));
+        add(getCreateJButton(), new Constraints(new Trailing(60, 10, 234),
+                new Leading(6, 12, 12)));
+
+       add(jcb, new Constraints(new Trailing(5, 10, 234),
+              new Leading(6, 12, 12)));
+
         add(getJScrollPane0(), new Constraints(new Bilateral(11, 5, 22),
                 new Bilateral(43, 12, 22)));
 
     }
+
+
 
     private JButton getCreateJButton() {
         if (buttonCreate == null) {
