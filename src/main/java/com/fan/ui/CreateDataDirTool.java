@@ -28,15 +28,12 @@ public class CreateDataDirTool {
         JTextArea = jTextArea;
     }
 
-    public void createDataDir(String path) throws IOException,
+    public void createDataDir(String path,String excelType) throws IOException,
             DocumentException {
         IExcelWriter excelWriter = null;
 
-        // 暂时设置为
-        String type = ExcelWriterFactory.XLSX_TYPE;
-
         try {
-            excelWriter = ExcelWriterFactory.getExcelWriter(type);
+            excelWriter = ExcelWriterFactory.getExcelWriter(excelType);
         } catch (Exception ex) {
             JTextArea.append(ex.getMessage());
             return;
@@ -82,7 +79,7 @@ public class CreateDataDirTool {
         }
         JTextArea.append("开始生成字典文件" + "\n");
 
-        if (ExcelWriterFactory.XLSX_TYPE.equals(type)) {
+        if (ExcelWriterFactory.XLSX_TYPE.equals(excelType)) {
             entityToExcel.writeFile("DataDirectory.xlsx");
         } else {
             entityToExcel.writeFile("DataDirectory.xls");

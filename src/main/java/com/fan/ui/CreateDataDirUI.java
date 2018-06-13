@@ -7,6 +7,9 @@ import java.io.File;
 import javax.swing.*;
 import javax.swing.filechooser.FileFilter;
 
+import com.fan.exceltool.ExcelWriterFactory;
+import com.fan.exceltool.WriteType;
+import com.fan.version.VersionMessage;
 import org.dyno.visual.swing.layouts.Bilateral;
 import org.dyno.visual.swing.layouts.Constraints;
 import org.dyno.visual.swing.layouts.GroupLayout;
@@ -22,18 +25,18 @@ public class CreateDataDirUI extends JFrame {
     private JTextField textField = null;
     JButton buttonDir = null;
     JButton buttonCreate = null;
-    private JCheckBox jcb = new JCheckBox("xlsx");
+    private JCheckBox jcbExcelType = null;
 
     public CreateDataDirUI() {
         super();
         this.setSize(500, 400);
         setLocation(300, 150);
         this.setJMenuBar(new DataDirMenu());
-        this.setTitle("数据字典生成工具-猫不急");
+        this.setTitle(VersionMessage.PRODUCT_NAME_CN + VersionMessage.VERSION);
 
         setLayout(new GroupLayout());
 
-        add(dirSelectJTextField(), new Constraints(new Bilateral(14, 200, 4),
+        add(dirSelectJTextField(), new Constraints(new Bilateral(14, 250, 4),
                 new Leading(12, 12, 12)));
 
         add(getDirJButton(), new Constraints(new Trailing(150, 10, 234),
@@ -41,15 +44,19 @@ public class CreateDataDirUI extends JFrame {
         add(getCreateJButton(), new Constraints(new Trailing(60, 10, 234),
                 new Leading(6, 12, 12)));
 
-       add(jcb, new Constraints(new Trailing(5, 10, 234),
-              new Leading(6, 12, 12)));
+        add(getExcelTypeJCheckBox(), new Constraints(new Trailing(5, 10, 234),
+                new Leading(6, 12, 12)));
 
         add(getJScrollPane0(), new Constraints(new Bilateral(11, 5, 22),
                 new Bilateral(43, 12, 22)));
 
     }
 
-
+    private JCheckBox getExcelTypeJCheckBox() {
+        jcbExcelType = new JCheckBox("xlsx");
+        jcbExcelType.setSelected(true);
+        return jcbExcelType;
+    }
 
     private JButton getCreateJButton() {
         if (buttonCreate == null) {
@@ -58,12 +65,17 @@ public class CreateDataDirUI extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     jTextArea0.setText("");
                     buttonCreate.setEnabled(false);
-                    String path=dirSelectJTextField().getText();
+                    String path = dirSelectJTextField().getText();
 
-                    DataDirThread  dataDirThread=new DataDirThread(jTextArea0,path);
+                    String excelType= ExcelWriterFactory.XLS_TYPE;
+                    if(jcbExcelType.isSelected()){
+                        excelType=ExcelWriterFactory.XLSX_TYPE;
+                    }
+
+                    DataDirThread dataDirThread = new DataDirThread(jTextArea0, path,excelType);
                     dataDirThread.addLsJButton(buttonCreate);
                     dataDirThread.addLsJButton(buttonDir);
-                    Thread t=new Thread (dataDirThread);
+                    Thread t = new Thread(dataDirThread);
                     t.start();
 
                 }
@@ -81,7 +93,6 @@ public class CreateDataDirUI extends JFrame {
 
         return textField;
     }
-
 
 
     private JButton getDirJButton() {
@@ -123,6 +134,10 @@ public class CreateDataDirUI extends JFrame {
             jTextArea0 = new JTextArea();
             jTextArea0.setText("");
             jTextArea0.setLineWrap(true);
+
+            jTextArea0.append("制作人：猫不急\n");
+            jTextArea0.append("Email：16770864@qq.com\n");
+            jTextArea0.append("项目地址:https://github.com/maobuji/DataDirTool\n");
         }
         return jTextArea0;
     }

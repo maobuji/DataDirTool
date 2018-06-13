@@ -11,6 +11,7 @@ public class DataDirThread implements Runnable {
 
     CreateDataDirTool createDataDirTool = null;
     String path = "";
+    String excelType="";
 
     List lsJButton = new ArrayList();
     JTextArea jTextArea=null;
@@ -27,17 +28,18 @@ public class DataDirThread implements Runnable {
         }
     }
 
-    public DataDirThread(JTextArea jTextArea, String path) {
+    public DataDirThread(JTextArea jTextArea, String path,String excelType) {
         createDataDirTool = new CreateDataDirTool();
         createDataDirTool.setJTextArea(jTextArea);
         this.path = path;
+        this.excelType=excelType;
         this.jTextArea=jTextArea;
     }
 
     public void run() {
         try {
             setJButtonEnable(false);
-            createDataDirTool.createDataDir(this.path);
+            createDataDirTool.createDataDir(this.path,this.excelType);
         } catch (Exception e) {
             e.printStackTrace();
             jTextArea.append("/n"+e.getMessage());
