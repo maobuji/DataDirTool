@@ -4,7 +4,7 @@
 
 本工具可根据EAS服务器中的元数据文件，获得数据表的元数据信息，并导出到Excel中生成数据字典。</br>
 
-* [DataDirToolV1.1下载](https://github.com/maobuji/DataDirTool/releases/download/1.0/DataDirTool1.0.zip)
+* [DataDirToolV1.1下载](https://github.com/maobuji/DataDirTool/releases/download/1.1/DataDirTool1.1.zip)
 
 样例：可使用Excel的数据筛选功能，查看自己关注的数据表<br>
 ![image](doc/img/demo.png)
@@ -16,7 +16,6 @@
 此工具为java开发，需要先安装java运行环境JDK。
 
 工具可能存在bug，为避免风险，请不要直接在服务器上运行此工具，请拷贝对应的服务器文件到本地。
-
 
 
 ##### 工具使用方法
