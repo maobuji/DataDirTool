@@ -49,6 +49,16 @@
 
 ## 开发配置
 
+工程为maven工程直接导入即可。由于有一些外部jar无法下载。
+故需要在extlib目录中直接install.bat将外部jar加入到本地maven仓库中。
+
+程序主启动类为：com.fan.AppUIStart
+
+
+## 常见异常说明
+
+1. run.bat一闪就消失了
+   请检查jdk是否安装，推荐使用JDK1.8
 
 
 

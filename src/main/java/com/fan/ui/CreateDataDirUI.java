@@ -100,7 +100,9 @@ public class CreateDataDirUI extends JFrame {
             buttonDir = new JButton("选择目录");
             buttonDir.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    JFileChooser chooser = new JFileChooser();
+
+                    File f=new File("");
+                    JFileChooser chooser = new JFileChooser(f.getAbsolutePath());
                     chooser.setFileFilter(getFileFilter());
                     chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
                     if (chooser.showOpenDialog(new JPanel()) == JFileChooser.APPROVE_OPTION) {

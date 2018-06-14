@@ -1,0 +1,1 @@
+java -cp DataDirTool.jar -Xmn32m -Xms128m -Xmx1536m  com.fan.AppUIStart
