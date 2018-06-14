@@ -21,33 +21,30 @@
 
 ##### 工具使用方法
 
-1. 解压DataDirTool.zip工具包
+1. 解压DataDirTool.zip工具包</br>
 ![image](doc/img/help1.png)
    
 
-2. 拷贝服务器eas/server/metas元数据文件夹到本地
+2. 拷贝服务器eas/server/metas元数据文件夹到本地</br>
 ![image](doc/img/help2.png)
    
 
-3. 执行run.bat运行工具
+3. 执行run.bat运行工具</br>
 ![image](doc/img/help3.png)
    
 
-4. 选择元数据文件夹
+4. 选择元数据文件夹</br>
 ![image](doc/img/help4.png)
    
 
-5. 点击生成字典
+5. 点击生成字典</br>
 ![image](doc/img/help5.png)
 
 
-6. 生成完毕后，在同级目录下查看生成的字典文件
+6. 生成完毕后，在同级目录下查看生成的字典文件</br>
 ![image](doc/img/help6.png)
 
 ![image](doc/img/help7.png)
-
-
-
 
 
 ## 开发配置
