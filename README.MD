@@ -8,6 +8,7 @@
 
 样例：可使用Excel的数据筛选功能，查看自己关注的数据表<br>
 ![image](doc/img/demo.png)
+<img src="doc/img/demo.png" width="400" height="300">
 
 作者联系方式：16770864@qq.com
 
