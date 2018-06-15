@@ -60,5 +60,10 @@
    请检查jdk是否安装，推荐使用JDK1.8
 
 
+## 捐助
+如果您觉得这个工具对您产生了帮助，欢迎打赏，以鼓励作者继续优化
+![image](https://github.com/maobuji/Temp/blob/master/account/weixin-maobuji.jpg)
+
+
 
 
