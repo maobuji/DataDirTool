@@ -38,6 +38,7 @@
    
 
 5. 点击生成字典</br>
+xlsx若选中则生成2007版的Excel文件，字典不会分页。不选则生成旧版本的Excel数据会拆分成多个sheet页存储</br>
 ![image](doc/img/help5.png)
 
 
