@@ -7,7 +7,7 @@
 样例：可使用Excel的数据筛选功能，查看自己关注的数据表<br>
 <img src="doc/img/demo.png" width="791" height="422">
 
-* [DataDirToolV1.1下载](https://github.com/maobuji/DataDirTool/releases/download/1.1/DataDirTool1.1.zip)
+* [DataDirTool-V1.2下载](https://github.com/maobuji/DataDirTool/releases/download/1.2/DataDirTool-V1.2.zip)
 
 作者联系方式：16770864@qq.com,如果您觉得这个工具对您产生了帮助，欢迎打赏，以鼓励作者继续优化<br>
 <img src="https://github.com/maobuji/Temp/blob/master/account/weixin-maobuji.jpg" width="300" height="300">
