@@ -61,21 +61,32 @@ public class CreateDataDirTool {
         EntityAnalysisTool entityAnalysisTool = new EntityAnalysisTool(
                 matesList.getMatesMap());
         String[] keys = entityAnalysisTool.getKeys();
+
+
+
         for (int i = 0; i < keys.length; i++) {
             if (!keys[i].endsWith(".entity")) {
                 continue;
             }
-            EntityAnalysisInfo entityAnalysisInfo = entityAnalysisTool
-                    .find(keys[i]);
-            entityToExcel.write(entityAnalysisInfo);
-            String outPut = keys[i] + "(" + (i + 1) + "-" + keys.length + ")";
 
+            String outPut = keys[i] + "(" + (i + 1) + "-" + keys.length + ")";
             System.out.println(outPut);
             JTextArea.append(outPut + "\n");
-            JTextArea.setCaretPosition(JTextArea.getText().length());//
+            JTextArea.setCaretPosition(JTextArea.getText().length());
             JTextArea.paintImmediately(JTextArea.getBounds());
 
-
+            try {
+                EntityAnalysisInfo entityAnalysisInfo = entityAnalysisTool
+                        .find(keys[i]);
+                entityToExcel.write(entityAnalysisInfo);
+            }catch(Exception ex){
+                ex.printStackTrace();
+                String errorMessage="该entity解析失败:"+ex.getMessage();
+                System.out.println(errorMessage);
+                JTextArea.append(errorMessage + "\n");
+                JTextArea.setCaretPosition(JTextArea.getText().length());
+                JTextArea.paintImmediately(JTextArea.getBounds());
+            }
         }
         JTextArea.append("开始生成字典文件" + "\n");
 
